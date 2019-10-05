@@ -27,11 +27,11 @@ Raspi based switch used to record and display when our beloved doggy woggy has b
 ssh
 
 ```bash
-ssh pi@192.168.178.45
+ssh pi@192.168.1.45
 ```
 
 copy code to pi
 
 ```bash
-inotify scp -r app/ pi@192.168.178.45:/home/pi/
+inotify scp -r app/ pi@192.168.1.45:/home/pi/
 ```
