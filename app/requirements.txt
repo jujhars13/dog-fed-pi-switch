@@ -1,0 +1,2 @@
+# apt-get install -y \
+#  python3-rpi.gpio python3-smbus
