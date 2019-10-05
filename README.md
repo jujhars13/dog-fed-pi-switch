@@ -13,14 +13,14 @@ Raspi based switch used to record and display when our beloved doggy woggy has b
 - [x] print message to LCD screen
 - [x] led flash sequence
 - [x] wire up button
-- [ ] draw wiring diagram (fritzing)
 - [ ] send IFTTT notification to write to gsheet and send mobile notifications
-- [ ] pull latest script at boot
-- [ ] start script at boot
 - [ ] woof sound
-- [ ] solder things up
+- [ ] start script at boot
+- [ ] draw wiring diagram (fritzing)
+- [ ] pull latest script from github at boot
 - [ ] re-install pi and redeploy
 - [ ] ensure pi has autoupdates on
+- [ ] solder things up
 - [ ] deploy
 
 ## _Stuff
