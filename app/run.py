@@ -1,6 +1,5 @@
 import RPi.GPIO as GPIO
 import time
-import alsaaudio
 from subprocess import call
 
 # our libs
@@ -9,8 +8,6 @@ from src import display
 # constants
 PIN_BUTTON = 36
 PIN_LED = 37
-
-m = alsaaudio.Mixer('PCM')
 
 # Numbers pins by physical location
 GPIO.setmode(GPIO.BOARD)
@@ -55,12 +52,7 @@ try:
         print(f"\n Button pressed {PIN_BUTTON}")
         display.renderDisplay()
         pulseLed(p)
-        # speak
-        m.setvolume(90)  # Set the volume high
-        call(["/bin/bash", "-c",
-              "\"echo 'Thank you, nom nom' | /usr/bin/festival --tts\""])
         p.stop()
-        m.setvolume(1)  # Set the volume low
 except KeyboardInterrupt:
     p.stop()
     GPIO.output(PIN_LED, GPIO.HIGH)    # turn off all leds

@@ -11,13 +11,14 @@ apt-get install -y \
 
 # app specific dependencies
 apt-get install -y \
-  python3-rpi.gpio python3-smbus python3-alsaaudio \
-  alsa-utils festival
+  python3-rpi.gpio python3-smbus
+  #python3-alsaaudio \
+  #alsa-utils festival
 
-# enable sound card
-echo "snd_bcm2835" | tee -a /etc/modules
-# set volume low to prevent background noise from onboard card
-amixer sset PCM,0 1%
+# # enable sound card
+# echo "snd_bcm2835" | tee -a /etc/modules
+# # set volume low to prevent background noise from onboard card
+# amixer sset PCM,0 1%
 
 # enable i2c pins
 echo "dtparam=i2c_arm=on" | tee -a /boot/config.txt
