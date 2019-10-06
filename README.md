@@ -38,3 +38,5 @@ copy code to pi
 ```bash
 inotify scp -r app/ pi@192.168.1.45:/home/pi/
 ```
+
+1
