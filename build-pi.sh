@@ -20,12 +20,19 @@ echo "hdmi_blanking=1" | tee -a /boot/config.txt
 echo "enable_tvout=1" | tee -a /boot/config.txt
 
 # deploy application, use https to avoid host + key issues
-cd /opt && git clone https://github.com/jujhars13/akaal-switch
+# use a subshell
+(cd /opt || exit; git clone https://github.com/jujhars13/akaal-switch)
 
 # deploy service
 cp /opt/akaal-switch/systemd.service /lib/systemd/system/akaalButton.service
 chmod 644 /lib/systemd/system/akaalButton.service
+sudo systemctl daemon-reload
+sudo systemctl enable akaalButton.service
 
 # deploy git pull on restart
-echo $"@reboot cd /opt/akaal-switch && git pull " | tee -a /etc/cron.d/akaal-switch-git-pull
-chmod +x /etc/cron.d/akaal-switch-git-pull
+# use rc.local to prevent directory permissions issues from cron.d
+# add entry to just before last line `exit 0`
+# NB rc.local runs !#/bin/sh not !#bin/bash
+export totalLength=$(($(< /etc/rc.local wc -l)-1))
+sed -i "${totalLength}a\
+# pull latest Akaal switch code\n/opt/akaal-switch/build-pi.sh\n" /etc/rc.local
