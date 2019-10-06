@@ -35,4 +35,4 @@ sudo systemctl enable akaalButton.service
 # NB rc.local runs !#/bin/sh not !#bin/bash
 export totalLength=$(($(< /etc/rc.local wc -l)-1))
 sed -i "${totalLength}a\
-# pull latest Akaal switch code\n/opt/akaal-switch/build-pi.sh\n" /etc/rc.local
+# pull latest Akaal switch code\n/opt/akaal-switch/git-pull.sh\n" /etc/rc.local
