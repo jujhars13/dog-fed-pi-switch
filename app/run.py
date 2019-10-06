@@ -1,11 +1,13 @@
+from src import display
 import RPi.GPIO as GPIO
 import time
 from subprocess import call
 import os
 import urllib.request
+import http.client
+http.client.HTTPConnection.debuglevel = 1
 
 # our libs
-from src import display
 
 # constants
 PIN_BUTTON = 36
@@ -53,7 +55,7 @@ def pulseLed(pin):
     time.sleep(1)
 
 
-res = urllib.request.Request(IFTTT_URL).read()
+res = urllib.request.urlopen(IFTTT_URL).read()
 print(res)
 exit(1)
 
@@ -64,8 +66,8 @@ try:
         print(f"\n Button pressed {PIN_BUTTON}")
         display.renderDisplay()
         print(f"Calling {IFTTT_URL}")
-        req = urllib.request.Request(IFTTT_URL)
-        print(req)
+        res = urllib.request.urlopen(IFTTT_URL).read()
+        print(res)
         pulseLed(p)
         p.stop()
 except KeyboardInterrupt:
