@@ -13,8 +13,8 @@ Press the button to register when she's been fed:
 ## Hardware required
 
 - Raspberry Pi B+,Zero, 3, 4 or any internet enabled Pi
-- [I2C](https://i2c.info/) enabled LCD/OLED [like this one](https://www.amazon.co.uk/gp/product/B07PWWTB94/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
-- Breadboard/circuit board wires/solder
+- An [I2C](https://i2c.info/) enabled LCD/OLED [like this one](https://www.amazon.co.uk/gp/product/B07PWWTB94/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
+- Breadboard/circuit board with wires/solder to hole the whole thing together
 - Flashing Light - LED with 330Ohm resistor
 - Physical push switch
 
@@ -33,7 +33,8 @@ Press the button to register when she's been fed:
 - Copy `provision-pi.sh` and your populated `.env` to a new [Raspbian Buster](https://www.raspberrypi.org/downloads/raspbian/) `/boot` partition
 - Once Pi has finished booting for the first time and you've configured:
   - network(WiFi)
-  - ssh connection & security
+  - ssh auth & security
+  - kernel support for the [i2c module](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c) use `raspi-config`
 - Run `provision-pi.sh` as `root`:
 
   ```bash
@@ -61,12 +62,14 @@ Press the button to register when she's been fed:
 - [x] start script at boot
 - [x] draw wiring diagram (fritzing)
 - [x] pull latest script from github at boot
-- [ ] re-install raspbian lite and redeploy w/ provision script
+- [x] re-install raspbian lite and redeploy w/ provision script
 - [x] ensure pi has autoupdates on
-- [ ] deploy prototype
-    - [ ] take photo of prototype
+- [x] deploy prototype MVP
+    - [x] test
+    - [x] take photo of prototype
 - [ ] solder things up
 - [ ] deploy prod
+    - [ ] test
     - [ ] take photo of final setup
 
 ## Addendum
@@ -75,6 +78,9 @@ Press the button to register when she's been fed:
 
 Dev Board:
 ![in dev](docs/dev-board.jpg)
+
+Prototype MVP setup in the field
+![prototype mvp](docs/mvp-board.jpg)
 
 ### Debug
 

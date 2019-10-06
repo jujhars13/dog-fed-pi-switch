@@ -2,14 +2,16 @@
 # setup the raspi with dependencies
 # tested on raspbian buster
 
+# remember to setup WIfi first, edit /etc/wpa_supplicant/wpa_supplicant.conf https://learn.sparkfun.com/tutorials/using-pcduinos-wifi-dongle-with-the-pi/edit-wpasupplicantconf
 # run this as root
 # sudo su -
 
-apt-get update && apt-get upgrade
+apt-get update && apt-get upgrade -y
 apt-get install -y \
   git i2c-tools unattended-upgrades apt-listchanges vim
-
 # use sudo i2cdetect -y 1 to detect LCD address
+# remember to use `raspi-config` to enable i2c kernel module
+# @see https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c
 
 # app specific dependencies
 apt-get install -y \
@@ -31,8 +33,8 @@ echo "dtparam=i2c_arm=on" | tee -a /boot/config.txt
 echo "hdmi_blanking=1" | tee -a /boot/config.txt
 echo "enable_tvout=0" | tee -a /boot/config.txt
 
-# deploy application, use https to avoid host + key issues
-# use a subshell
+# deploy application via github, use https to avoid host + key issues
+# use a subshell to avoid dir issues
 (cd /opt || exit; git clone https://github.com/jujhars13/akaal-switch)
 
 # deploy systemd service
