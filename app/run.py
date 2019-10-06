@@ -52,7 +52,7 @@ try:
         display.renderDisplay()
         pulseLed(p)
         # speak
-        call(["/bin/bash", "-c", "echo 'Thank you, nom nom' | festival --tts"])
+        call(["/bin/bash", "-c", "\"echo 'Thank you, nom nom' | festival --tts\""])
         p.stop()
 except KeyboardInterrupt:
     p.stop()
