@@ -10,10 +10,6 @@ Press the button to register when she's been fed:
 
 ![](akita_logo.png)
 
-## links
-
-- [RasPi 48pin Pinout](https://pinout.xyz/pinout/i2c)
-
 ## Hardware required
 
 - Raspberry Pi B+,Zero, 3, 4 or any internet enabled Pi
@@ -24,11 +20,12 @@ Press the button to register when she's been fed:
 
 ## To Deploy
 
-- copy `provision-pi.sh` and your populated `.env` to a new Raspbian Stretch `/boot` partition
-- once Pi has finished booting for the first time and you've configured
-  - network(wifi)
+- Ensure you've copied `.env.template` to `.env` and populated the environment variables required.
+- Copy `provision-pi.sh` and your populated `.env` to a new [Raspbian Buster](https://www.raspberrypi.org/downloads/raspbian/) `/boot` partition
+- Once Pi has finished booting for the first time and you've configured:
+  - network(WiFi)
   - ssh connection & security
-- run `provision-pi.sh` as `root`:
+- Run `provision-pi.sh` as `root`:
 
   ```bash
   sudo su -
@@ -60,12 +57,11 @@ Press the button to register when she's been fed:
 - [ ] deploy
 - [ ] take photo of final output
 
-### To Run
-Ensure you've copied `.env.template` to `.env` and populated the environment variables required.
-
 ## _Stuff
 
-ssh
+- [RasPi 48pin Pinout](https://pinout.xyz/pinout/i2c)
+
+ssh to pi
 
 ```bash
 ssh pi@192.168.1.45
@@ -75,17 +71,6 @@ auto copy code to pi
 
 ```bash
 inotify scp -r app/ pi@192.168.1.45:/home/pi/
-```
-
-```lua
-conn:on("connection", function(conn, payload)
-     conn:send("GET IFFT_URL"
-      .." HTTP/1.1\r\n"
-      .."Host: \r\n"
-      .."Accept: */*\r\n"
-      .."User-Agent: Mozilla/4.0 (compatible; esp8266 Lua; Windows NT 5.1)\r\n"
-      .."\r\n")
-      print("IFTTT request sent. Goodbye")
 ```
 
 ## Licence
