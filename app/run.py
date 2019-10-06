@@ -52,7 +52,7 @@ try:
         display.renderDisplay()
         pulseLed(p)
         # speak
-        call(["/usr/bin/espeak", "-s140 -ven+18 -z", "Thank you, nom nom"])
+        call(["/bin/bash", "-c", "echo 'Thank you, nom nom' | festival --tts"])
         p.stop()
 except KeyboardInterrupt:
     p.stop()
