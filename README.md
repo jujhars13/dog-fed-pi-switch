@@ -55,7 +55,7 @@ Press the button to register when she's been fed:
 - [x] print message to LCD screen
 - [x] led flash sequence
 - [x] wire up button
-- ~[ ] add speech/woof sound, (need DAC) ~
+- ~~[ ] add speech/woof sound~~ (need DAC, onboard sound is noisy)
 - [x] take photo of dev board
 - [x] send IFTTT notification to write to gsheet and send mobile notifications
 - [x] start script at boot
@@ -63,9 +63,11 @@ Press the button to register when she's been fed:
 - [x] pull latest script from github at boot
 - [ ] re-install raspbian lite and redeploy w/ provision script
 - [x] ensure pi has autoupdates on
+- [ ] deploy prototype
+    - [ ] take photo of prototype
 - [ ] solder things up
-- [ ] deploy
-- [ ] take photo of final output
+- [ ] deploy prod
+    - [ ] take photo of final setup
 
 ## Addendum
 
