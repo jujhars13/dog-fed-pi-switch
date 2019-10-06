@@ -8,7 +8,7 @@ Press the button to register when she's been fed:
 - Ping IFTTT for mobile notifications etc
 - Flashes LED
 
-![](docs/akita_logo.png)
+![](docs/akaal_kaur_akita_logo.png)
 
 ## Hardware required
 
