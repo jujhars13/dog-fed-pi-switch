@@ -56,12 +56,13 @@ def pulseLed(pin):
 try:
     while True:
         # interrupt, wait until true
-        GPIO.wait_for_edge(PIN_BUTTON, GPIO.FALLING)
+        # GPIO.wait_for_edge(PIN_BUTTON, GPIO.FALLING)
         print(f"\n Button pressed {PIN_BUTTON}")
         display.renderDisplay()
         req = urllib.request.Request(IFTTT_URL)
         pulseLed(p)
         p.stop()
+        exit 1
 except KeyboardInterrupt:
     p.stop()
     GPIO.output(PIN_LED, GPIO.HIGH)    # turn off all LEDs
