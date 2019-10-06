@@ -1,0 +1,10 @@
+ [Unit]
+ Description=AkaalButton
+ After=multi-user.target
+
+ [Service]
+ Type=idle
+ ExecStart=/usr/bin/python3 /opt/akaal-switch/app/run.py
+
+ [Install]
+ WantedBy=multi-user.target

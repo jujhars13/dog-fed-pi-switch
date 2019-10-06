@@ -13,9 +13,9 @@ Raspi based switch used to record and display when our beloved doggy woggy has b
 - [x] print message to LCD screen
 - [x] led flash sequence
 - [x] wire up button
+- [ ] woof sound
 - [ ] take photo of dev board
 - [ ] send IFTTT notification to write to gsheet and send mobile notifications
-- [ ] woof sound
 - [ ] start script at boot
 - [ ] draw wiring diagram (fritzing)
 - [ ] pull latest script from github at boot

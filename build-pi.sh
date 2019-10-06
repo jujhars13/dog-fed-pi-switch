@@ -19,5 +19,13 @@ echo "dtparam=i2c_arm=on" | tee -a /boot/config.txt
 echo "hdmi_blanking=1" | tee -a /boot/config.txt
 echo "enable_tvout=1" | tee -a /boot/config.txt
 
-cd /opt
-git clone git@github.com:jujhars13/akaal-switch.git
+# deploy application, use https to avoid host + key issues
+cd /opt && git clone https://github.com/jujhars13/akaal-switch
+
+# deploy service
+cp /opt/akaal-switch/systemd.service /lib/systemd/system/akaalButton.service
+chmod 644 /lib/systemd/system/akaalButton.service
+
+# deploy git pull on restart
+echo $"@reboot cd /opt/akaal-switch && git pull " | tee -a /etc/cron.d/akaal-switch-git-pull
+chmod +x /etc/cron.d/akaal-switch-git-pull
