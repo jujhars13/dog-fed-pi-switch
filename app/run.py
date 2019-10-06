@@ -1,6 +1,9 @@
 import RPi.GPIO as GPIO
-from src import display
 import time
+from subprocess import call
+
+# our libs
+from src import display
 
 # constants
 PIN_BUTTON = 36
@@ -48,7 +51,8 @@ try:
         print(f"\n Button pressed {PIN_BUTTON}")
         display.renderDisplay()
         pulseLed(p)
-        time.sleep(1)
+        # speak
+        call(["/usr/bin/espeak", "-s140 -ven+18 -z", "Thank you, nom nom"])
         p.stop()
 except KeyboardInterrupt:
     p.stop()
