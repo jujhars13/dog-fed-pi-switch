@@ -1,21 +1,21 @@
 # Akaal Kaur - Doggy been Fed Switch
 
-Raspberry Pi based switch with LCD used to record and display when our beloved doggy woggy has been fed so she can't dupe us and get fed twice.
+Raspberry Pi based switch with LCD used to record and display when our beloved doggy woggy has been fed so she can't dupe us and get fed twice - the dastardly dog.
 
 Press the button to register when she's been fed:
 
-- Displays date last fed on Display
+- Displays date last fed on LCD display
 - Ping IFTTT for mobile notifications etc
-- Flashes LCD
+- Flashes LED
 
 ![](akita_logo.png)
 
 ## Hardware required
 
 - Raspberry Pi B+,Zero, 3, 4 or any internet enabled Pi
-- I2C enabled LCD/OLED [like this](https://www.amazon.co.uk/gp/product/B07PWWTB94/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
+- I2C enabled LCD/OLED [like this one](https://www.amazon.co.uk/gp/product/B07PWWTB94/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
 - Breadboard/circuit board wires/solder
-- LED with 330ohm resistor
+- Flashing Light - LED with 330Ohm resistor
 - Physical push switch
 
 ## To Deploy
@@ -36,6 +36,7 @@ Press the button to register when she's been fed:
       - Install all deps
       - checkout code to `/opt/akaal-switch`
       - setup updates, reboots etc...
+      - setup code to run as daemon (using Systemd)
 - Remember to populate and copy `.env` to `/opt/akaal-switch` if you have not already done so
 - Wire up RasPi as per diagram
 - Reboot and Test!

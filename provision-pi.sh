@@ -9,13 +9,15 @@ apt-get update && apt-get upgrade
 apt-get install -y \
   git i2c-tools unattended-upgrades apt-listchanges vim
 
+# use sudo i2cdetect -y 1 to detect LCD address
+
 # app specific dependencies
 apt-get install -y \
   python3-rpi.gpio python3-smbus
   #python3-alsaaudio \
   #alsa-utils festival
 
-# configure all auto updates
+# configure all auto updates, not just security ones
 sed -i "s/\/\/      \"origin=Debian,codename=/        \"origin=Debian,codename=/g" /etc/apt/apt.conf.d/50unattended-upgrades
 
 # # enable sound card
