@@ -8,7 +8,7 @@ Press the button to register when she's been fed:
 - Ping IFTTT for mobile notifications etc
 - Flashes LED
 
-![](akita_logo.png)
+![](docs/akita_logo.png)
 
 ## Hardware required
 
@@ -25,7 +25,7 @@ Press the button to register when she's been fed:
 - LED PullUp  - `Board Pin 37`
 - Switch PullDown  - `Board Pin 36`
 
-![wiring-diagram](wiring-diagram_bb.svg)
+![wiring-diagram](docs/wiring-diagram_bb.svg)
 
 ## To Deploy
 
@@ -56,18 +56,25 @@ Press the button to register when she's been fed:
 - [x] led flash sequence
 - [x] wire up button
 - ~[ ] add speech/woof sound, (need DAC) ~
-- [ ] take photo of dev board
-- [ ] send IFTTT notification to write to gsheet and send mobile notifications
+- [x] take photo of dev board
+- [x] send IFTTT notification to write to gsheet and send mobile notifications
 - [x] start script at boot
 - [x] draw wiring diagram (fritzing)
 - [x] pull latest script from github at boot
-- [ ] re-install pi and redeploy
+- [ ] re-install raspbian lite and redeploy w/ provision script
 - [x] ensure pi has autoupdates on
 - [ ] solder things up
 - [ ] deploy
 - [ ] take photo of final output
 
-## _Stuff
+## Addendum
+
+### Photos
+
+Dev Board:
+![in dev](docs/dev-board.jpg)
+
+### Debug
 
 - [RasPi 48pin Pinout](https://pinout.xyz/pinout/i2c)
 

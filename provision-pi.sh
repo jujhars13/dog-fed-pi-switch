@@ -38,8 +38,8 @@ echo "enable_tvout=0" | tee -a /boot/config.txt
 # deploy systemd service
 cp /opt/akaal-switch/systemd.service /lib/systemd/system/akaalButton.service
 chmod 644 /lib/systemd/system/akaalButton.service
-sudo systemctl daemon-reload
-sudo systemctl enable akaalButton.service
+systemctl daemon-reload
+systemctl enable akaalButton.service
 
 # deploy git pull on restart
 # use rc.local to prevent directory permissions issues from cron.d
