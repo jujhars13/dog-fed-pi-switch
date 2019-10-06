@@ -83,6 +83,12 @@ auto copy code to pi
 inotify scp -r app/ pi@192.168.1.45:/home/pi/
 ```
 
+debugging on pi
+
+```bash
+eval $(egrep -v '^#' .env | xargs) python3 app/run.py
+```
+
 ## Licence
 
 [MIT](LICENCE)

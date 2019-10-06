@@ -53,8 +53,8 @@ def pulseLed(pin):
     time.sleep(1)
 
 
-req = urllib.request.Request(IFTTT_URL)
-print(req)
+res = urllib.request.Request(IFTTT_URL).read()
+print(res)
 exit(1)
 
 try:
