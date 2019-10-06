@@ -5,15 +5,15 @@ from subprocess import call
 import os
 import urllib.request
 import http.client
+
 http.client.HTTPConnection.debuglevel = 1
 
-# our libs
+print("Starting Akaal Switch")
 
 # constants
 PIN_BUTTON = 36
 PIN_LED = 37
 
-print("Starting Akaal Switch")
 
 IFTTT_URL = os.getenv('IFTTT_URL')  # None
 if IFTTT_URL is None:
@@ -55,10 +55,6 @@ def pulseLed(pin):
     time.sleep(1)
 
 
-res = urllib.request.urlopen(IFTTT_URL).read()
-print(res)
-exit(1)
-
 try:
     while True:
         # interrupt, wait until true
@@ -67,7 +63,7 @@ try:
         display.renderDisplay()
         print(f"Calling {IFTTT_URL}")
         res = urllib.request.urlopen(IFTTT_URL).read()
-        print(res)
+        print(f"IFTTT response: {res}")
         pulseLed(p)
         p.stop()
 except KeyboardInterrupt:
