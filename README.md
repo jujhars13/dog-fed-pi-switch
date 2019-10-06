@@ -13,10 +13,19 @@ Press the button to register when she's been fed:
 ## Hardware required
 
 - Raspberry Pi B+,Zero, 3, 4 or any internet enabled Pi
-- I2C enabled LCD/OLED [like this one](https://www.amazon.co.uk/gp/product/B07PWWTB94/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
+- [I2C](https://i2c.info/) enabled LCD/OLED [like this one](https://www.amazon.co.uk/gp/product/B07PWWTB94/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
 - Breadboard/circuit board wires/solder
 - Flashing Light - LED with 330Ohm resistor
 - Physical push switch
+
+### Wiring Diagram
+
+- LCD i2C SDL - `Board Pin 3`
+- LCD i2C SCL - `Board Pin 5`
+- LED PullUp  - `Board Pin 37`
+- Switch PullDown  - `Board Pin 36`
+
+![wiring-diagram](wiring-diagram_bb.svg)
 
 ## To Deploy
 
