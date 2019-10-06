@@ -23,7 +23,7 @@ echo "enable_tvout=1" | tee -a /boot/config.txt
 # use a subshell
 (cd /opt || exit; git clone https://github.com/jujhars13/akaal-switch)
 
-# deploy service
+# deploy systemd service
 cp /opt/akaal-switch/systemd.service /lib/systemd/system/akaalButton.service
 chmod 644 /lib/systemd/system/akaalButton.service
 sudo systemctl daemon-reload
