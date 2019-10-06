@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import time
+import alsaaudio
 from subprocess import call
 
 # our libs
@@ -8,6 +9,8 @@ from src import display
 # constants
 PIN_BUTTON = 36
 PIN_LED = 37
+
+m = alsaaudio.Mixer('PCM')
 
 # Numbers pins by physical location
 GPIO.setmode(GPIO.BOARD)
@@ -18,6 +21,7 @@ GPIO.setup(PIN_LED, GPIO.OUT)
 GPIO.output(PIN_LED, GPIO.LOW)
 # GPIO PIN_BUTTON set up as input.
 GPIO.setup(PIN_BUTTON, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
 
 print(f"Waiting for falling edge on port {PIN_BUTTON}")
 # now the program will do nothing until the signal on the pin
@@ -52,9 +56,11 @@ try:
         display.renderDisplay()
         pulseLed(p)
         # speak
+        m.setvolume(90)  # Set the volume high
         call(["/bin/bash", "-c",
               "\"echo 'Thank you, nom nom' | /usr/bin/festival --tts\""])
         p.stop()
+        m.setvolume(1)  # Set the volume low
 except KeyboardInterrupt:
     p.stop()
     GPIO.output(PIN_LED, GPIO.HIGH)    # turn off all leds
