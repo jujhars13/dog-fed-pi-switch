@@ -59,10 +59,11 @@ try:
         # GPIO.wait_for_edge(PIN_BUTTON, GPIO.FALLING)
         print(f"\n Button pressed {PIN_BUTTON}")
         display.renderDisplay()
+        print(f"Calling {IFTTT_URL}")
         req = urllib.request.Request(IFTTT_URL)
         pulseLed(p)
         p.stop()
-        exit 1
+        exit(1)
 except KeyboardInterrupt:
     p.stop()
     GPIO.output(PIN_LED, GPIO.HIGH)    # turn off all LEDs
