@@ -1,6 +1,8 @@
 import RPi.GPIO as GPIO
 import time
 from subprocess import call
+import os
+import urllib.request
 
 # our libs
 from src import display
@@ -8,6 +10,10 @@ from src import display
 # constants
 PIN_BUTTON = 36
 PIN_LED = 37
+
+IFTTT_URL = os.getenv('IFTTT_URL')  # None
+if IFTTT_URL is None:
+    raise ValueError('IFTTT_URL not specified in env')
 
 # Numbers pins by physical location
 GPIO.setmode(GPIO.BOARD)
@@ -51,10 +57,11 @@ try:
         GPIO.wait_for_edge(PIN_BUTTON, GPIO.FALLING)
         print(f"\n Button pressed {PIN_BUTTON}")
         display.renderDisplay()
+        req = urllib.request.Request(IFTTT_URL)
         pulseLed(p)
         p.stop()
 except KeyboardInterrupt:
     p.stop()
-    GPIO.output(PIN_LED, GPIO.HIGH)    # turn off all leds
+    GPIO.output(PIN_LED, GPIO.HIGH)    # turn off all LEDs
     GPIO.cleanup()       # clean up GPIO on CTRL+C exit
 GPIO.cleanup()

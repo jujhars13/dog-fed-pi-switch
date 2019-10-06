@@ -3,6 +3,7 @@
  After=multi-user.target
 
  [Service]
+ EnvironmentFile=/opt/akaal-switch/.env
  Type=idle
  ExecStart=/usr/bin/python3 /opt/akaal-switch/app/run.py
 

@@ -7,13 +7,16 @@
 
 apt-get update && apt-get upgrade
 apt-get install -y \
-  git i2c-tools
+  git i2c-tools unattended-upgrades apt-listchanges vim
 
 # app specific dependencies
 apt-get install -y \
   python3-rpi.gpio python3-smbus
   #python3-alsaaudio \
   #alsa-utils festival
+
+# configure all auto updates
+sed -i "s/\/\/      \"origin=Debian,codename=/        \"origin=Debian,codename=/g" /etc/apt/apt.conf.d/50unattended-upgrades
 
 # # enable sound card
 # echo "snd_bcm2835" | tee -a /etc/modules
@@ -43,3 +46,9 @@ sudo systemctl enable akaalButton.service
 export totalLength=$(($(< /etc/rc.local wc -l)-1))
 sed -i "${totalLength}a\
 # pull latest Akaal switch code\n/opt/akaal-switch/git-pull.sh\n" /etc/rc.local
+
+# reboot every night to apply any kernel updates and get latest code
+echo $'#!/bin/bash
+echo "rebooting $(date)"
+shutdown -r now' > /etc/cron.daily/zz-daily-reboot
+chmod +x /etc/cron.daily/zz-daily-reboot
