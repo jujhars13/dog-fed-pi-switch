@@ -59,7 +59,7 @@ Press the button to register when she's been fed:
 - [ ] take photo of dev board
 - [ ] send IFTTT notification to write to gsheet and send mobile notifications
 - [x] start script at boot
-- [ ] draw wiring diagram (fritzing)
+- [x] draw wiring diagram (fritzing)
 - [x] pull latest script from github at boot
 - [ ] re-install pi and redeploy
 - [x] ensure pi has autoupdates on

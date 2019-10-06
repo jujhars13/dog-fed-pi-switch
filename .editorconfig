@@ -9,11 +9,11 @@ insert_final_newline     = true
 end_of_line              = lf
 charset                  = utf-8
 tab_width                = 2
-
-
-[*.{dtd,html,inc,php,phpt,rng,wsdl,xml,xsd,xsl}]
-indent_size              = 4
 indent_style             = space
+
+[*.py]
+indent_size              = 4
+max_line_length = 119
 
 [*.{ac,m4,sh,yml}]
 indent_size              = 2

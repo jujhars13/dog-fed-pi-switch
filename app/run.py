@@ -11,6 +11,8 @@ from src import display
 PIN_BUTTON = 36
 PIN_LED = 37
 
+print("Starting Akaal Switch")
+
 IFTTT_URL = os.getenv('IFTTT_URL')  # None
 if IFTTT_URL is None:
     raise ValueError('IFTTT_URL not specified in env')
@@ -65,3 +67,4 @@ except KeyboardInterrupt:
     GPIO.output(PIN_LED, GPIO.HIGH)    # turn off all LEDs
     GPIO.cleanup()       # clean up GPIO on CTRL+C exit
 GPIO.cleanup()
+print("Stopping Akaal Switch")
