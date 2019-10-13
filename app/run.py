@@ -1,7 +1,6 @@
 from src import display
 import RPi.GPIO as GPIO
 import time
-from subprocess import call
 import os
 import urllib.request
 import http.client
@@ -41,5 +40,6 @@ try:
         print(f"IFTTT response: {res}")
 except KeyboardInterrupt:
     GPIO.cleanup()       # clean up GPIO on CTRL+C exit
+
 GPIO.cleanup()
 print("Stopping Akaal Switch")

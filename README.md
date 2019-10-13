@@ -22,7 +22,6 @@ Press the button to register when she's been fed:
 
 - LCD i2C SDL - `Board Pin 3`
 - LCD i2C SCL - `Board Pin 5`
-- LED PullUp  - `Board Pin 37`
 - Switch PullDown  - `Board Pin 36`
 
 ![wiring-diagram](docs/wiring-diagram_bb.svg)
@@ -54,7 +53,7 @@ Press the button to register when she's been fed:
 ## TODO
 
 - [x] print message to LCD screen
-- [x] led flash sequence
+- ~[x] led flash sequence~ simplified and just used pull up switch power
 - [x] wire up button
 - ~~[ ] add speech/woof sound~~ (need DAC, onboard sound is noisy)
 - [x] take photo of dev board
