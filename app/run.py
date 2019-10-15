@@ -33,11 +33,13 @@ try:
     while True:
         # interrupt, wait until true
         GPIO.wait_for_edge(PIN_BUTTON, GPIO.RISING)
-        print(f"\n Button pressed {PIN_BUTTON}")
-        display.renderDisplay()
-        print(f"Calling {IFTTT_URL}")
-        res = urllib.request.urlopen(IFTTT_URL).read()
-        print(f"IFTTT response: {res}")
+        # poll once more to prevent edge detection issues with line noise
+        if GPIO.input(PIN_BUTTON):
+            print(f"\n Button pressed {PIN_BUTTON}")
+            display.renderDisplay()
+            print(f"Calling {IFTTT_URL}")
+            res = urllib.request.urlopen(IFTTT_URL).read()
+            print(f"IFTTT response: {res}")
 except KeyboardInterrupt:
     GPIO.cleanup()       # clean up GPIO on CTRL+C exit
 
