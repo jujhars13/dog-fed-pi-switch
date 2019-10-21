@@ -22,7 +22,7 @@ Press the button to register when she's been fed:
 
 - LCD i2C SDL - `Board Pin 3`
 - LCD i2C SCL - `Board Pin 5`
-- Switch PullDown  - `Board Pin 36`
+- Switch PullUp  - `Board Pin 36`
 
 ![wiring-diagram](docs/wiring-diagram_bb.svg)
 
@@ -45,7 +45,7 @@ Press the button to register when she's been fed:
       - Install all deps
       - checkout code to `/opt/akaal-switch`
       - setup updates, reboots etc...
-      - setup code to run as daemon (using Systemd)
+      - setup code to run as daemon (using systemd)
 - Remember to populate and copy `.env` to `/opt/akaal-switch` if you have not already done so
 - Wire up RasPi as per diagram
 - Reboot and Test!
@@ -97,7 +97,7 @@ auto copy code to pi
 inotify scp -r app/ pi@192.168.1.45:/home/pi/
 ```
 
-debugging on pi
+debugging on pi, evaluate .env file and load into session
 
 ```bash
 eval $(egrep -v '^#' .env | xargs) python3 app/run.py
