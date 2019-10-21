@@ -38,8 +38,8 @@ try:
             print(f"\n Button pressed {PIN_BUTTON}")
             display.renderDisplay()
             print(f"Calling {IFTTT_URL}")
-            # res = urllib.request.urlopen(IFTTT_URL).read()
-            # print(f"IFTTT response: {res}")
+            res = urllib.request.urlopen(IFTTT_URL).read()
+            print(f"IFTTT response: {res}")
 except KeyboardInterrupt:
     GPIO.cleanup()       # clean up GPIO on CTRL+C exit
 
