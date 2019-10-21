@@ -52,6 +52,7 @@ Press the button to register when she's been fed:
 
 ## TODO
 
+- [x] test lcd screen wireup using `i2cdetect -y 1`
 - [x] print message to LCD screen
 - ~[x] led flash sequence~ simplified and just used pull up switch power
 - [x] wire up button
