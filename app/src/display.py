@@ -4,8 +4,6 @@ from datetime import datetime
 # our libs
 from src import lcd
 
-# Main program block
-
 
 def renderDisplay():
 
