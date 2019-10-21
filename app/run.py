@@ -20,7 +20,7 @@ if IFTTT_URL is None:
 GPIO.setmode(GPIO.BOARD)
 
 # GPIO PIN_BUTTON set up as input.
-GPIO.setup(PIN_BUTTON, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(PIN_BUTTON, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 print(f"Waiting for falling edge on port {PIN_BUTTON}")
 # now the program will do nothing until the signal on the pin
