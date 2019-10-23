@@ -8,7 +8,7 @@
 
 apt-get update && apt-get upgrade -y
 apt-get install -y \
-  git i2c-tools unattended-upgrades apt-listchanges vim
+  git i2c-tools unattended-upgrades apt-listchanges vim omxplayer
 # use sudo i2cdetect -y 1 to detect LCD address
 # remember to use `raspi-config` to enable i2c kernel module
 # @see https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c

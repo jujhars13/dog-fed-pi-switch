@@ -71,6 +71,7 @@ Press the button to register when she's been fed:
 - [ ] deploy prod
     - [ ] test
     - [ ] take photo of final setup
+- [x] Play woof sound
 
 ## Addendum
 

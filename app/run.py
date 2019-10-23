@@ -4,6 +4,7 @@ import time
 import os
 import urllib.request
 import http.client
+import subprocess
 
 http.client.HTTPConnection.debuglevel = 1
 
@@ -40,6 +41,9 @@ try:
             print(f"Calling {IFTTT_URL}")
             res = urllib.request.urlopen(IFTTT_URL).read()
             print(f"IFTTT response: {res}")
+            subprocess.run(
+                ["/usr/bin/omxplayer", "/opt/akaal-switch/app/woof.wav"]
+            )
 except KeyboardInterrupt:
     GPIO.cleanup()       # clean up GPIO on CTRL+C exit
 
