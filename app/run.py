@@ -24,11 +24,12 @@ GPIO.setmode(GPIO.BOARD)
 # GPIO PIN_BUTTON set up as input.
 GPIO.setup(PIN_BUTTON, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-# no +5v to the amp until we need it
+# don't send +5v to the amp until we need it 'cos
 # the speaker hisses all the time due to the
-# low quality onboard PI DAC, so we only power up
+# low quality onboard PI DAC. So we'll only power up
 # the amp when we need to - JIT
 GPIO.setup(PIN_AMP_POWER, GPIO.OUT)
+GPIO.output(PIN_AMP_POWER, GPIO.LOW)
 
 print(f"Waiting for falling edge on port {PIN_BUTTON}")
 # now the program will do nothing until the signal on the pin
@@ -47,13 +48,14 @@ try:
             display.renderDisplay()
             # power up the amp
             GPIO.output(PIN_AMP_POWER, GPIO.HIGH)
+            sleep(0.5)
             # speak!
             subprocess.run(
                 ["/usr/bin/omxplayer", "/opt/akaal-switch/app/woof.wav"]
             )
             # call IFTTT
             print(f"Calling {IFTTT_URL}")
-            res = urllib.request.urlopen(IFTTT_URL).read()
+            # res = urllib.request.urlopen(IFTTT_URL).read()
             print(f"IFTTT response: {res}")
             # power down the amp
             GPIO.output(PIN_AMP_POWER, GPIO.LOW)
