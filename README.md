@@ -67,7 +67,7 @@ Press the button to register when she's been fed:
 - [x] deploy prototype MVP
     - [x] test
     - [x] take photo of prototype
-- [ ] solder things up
+    - [ ] solder things up
 - [ ] deploy prod
     - [ ] test
     - [ ] take photo of final setup

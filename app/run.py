@@ -12,6 +12,7 @@ print("Starting Akaal Switch")
 
 # constants
 PIN_BUTTON = 36
+PIN_AMP_POWER = 38
 
 IFTTT_URL = os.getenv('IFTTT_URL')  # None
 if IFTTT_URL is None:
@@ -22,6 +23,12 @@ GPIO.setmode(GPIO.BOARD)
 
 # GPIO PIN_BUTTON set up as input.
 GPIO.setup(PIN_BUTTON, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+# no +5v to the amp until we need it
+# the speaker hisses all the time due to the
+# low quality onboard PI DAC, so we only power up
+# the amp when we need to
+GPIO.output(PIN_AMP_POWER, GPIO.LOW)
 
 print(f"Waiting for falling edge on port {PIN_BUTTON}")
 # now the program will do nothing until the signal on the pin
@@ -38,12 +45,18 @@ try:
         if GPIO.input(PIN_BUTTON):
             print(f"\n Button pressed {PIN_BUTTON}")
             display.renderDisplay()
-            print(f"Calling {IFTTT_URL}")
-            res = urllib.request.urlopen(IFTTT_URL).read()
-            print(f"IFTTT response: {res}")
+            # power up the amp
+            GPIO.output(PIN_AMP_POWER, GPIO.HIGH)
+            # speak!
             subprocess.run(
                 ["/usr/bin/omxplayer", "/opt/akaal-switch/app/woof.wav"]
             )
+            # call IFFT
+            print(f"Calling {IFTTT_URL}")
+            res = urllib.request.urlopen(IFTTT_URL).read()
+            print(f"IFTTT response: {res}")
+            # power down the amp
+            GPIO.output(PIN_AMP_POWER, GPIO.LOW)
 except KeyboardInterrupt:
     GPIO.cleanup()       # clean up GPIO on CTRL+C exit
 
