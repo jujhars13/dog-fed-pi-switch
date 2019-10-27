@@ -27,7 +27,7 @@ GPIO.setup(PIN_BUTTON, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 # no +5v to the amp until we need it
 # the speaker hisses all the time due to the
 # low quality onboard PI DAC, so we only power up
-# the amp when we need to
+# the amp when we need to - JIT
 GPIO.output(PIN_AMP_POWER, GPIO.LOW)
 
 print(f"Waiting for falling edge on port {PIN_BUTTON}")
