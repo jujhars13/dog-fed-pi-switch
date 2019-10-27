@@ -48,7 +48,7 @@ try:
             display.renderDisplay()
             # power up the amp
             GPIO.output(PIN_AMP_POWER, GPIO.HIGH)
-            sleep(0.5)
+            time.sleep(0.5)
             # speak!
             subprocess.run(
                 ["/usr/bin/omxplayer", "/opt/akaal-switch/app/woof.wav"]
@@ -56,7 +56,7 @@ try:
             # call IFTTT
             print(f"Calling {IFTTT_URL}")
             # res = urllib.request.urlopen(IFTTT_URL).read()
-            print(f"IFTTT response: {res}")
+            # print(f"IFTTT response: {res}")
             # power down the amp
             GPIO.output(PIN_AMP_POWER, GPIO.LOW)
 except KeyboardInterrupt:
