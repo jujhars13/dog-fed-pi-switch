@@ -46,17 +46,20 @@ try:
         if GPIO.input(PIN_BUTTON):
             print(f"\n Button pressed {PIN_BUTTON}")
             display.renderDisplay()
+
             # power up the amp
             GPIO.output(PIN_AMP_POWER, GPIO.HIGH)
-            time.sleep(0.5)
             # speak!
             subprocess.run(
                 ["/usr/bin/omxplayer", "/opt/akaal-switch/app/woof.wav"]
             )
+            time.sleep(1)
+
             # call IFTTT
             print(f"Calling {IFTTT_URL}")
-            # res = urllib.request.urlopen(IFTTT_URL).read()
-            # print(f"IFTTT response: {res}")
+            res = urllib.request.urlopen(IFTTT_URL).read()
+            print(f"IFTTT response: {res}")
+
             # power down the amp
             GPIO.output(PIN_AMP_POWER, GPIO.LOW)
 except KeyboardInterrupt:
