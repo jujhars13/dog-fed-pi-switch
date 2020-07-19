@@ -1,6 +1,6 @@
 # Akaal Kaur - Doggy been Fed Switch
 
-Raspberry Pi based switch with LCD used to record and display when our beloved doggy woggy has been fed so she can't dupe us and get fed twice - the dastardly dog.
+Raspberry Pi based switch with LCD used to record and display when our beloved doggy woggy has been fed so she can't dupe us and get fed twice - [the dastardly dog](https://www.youtube.com/watch?v=hw3CE04LGiA).
 
 Press the button to register when she's been fed:
 
